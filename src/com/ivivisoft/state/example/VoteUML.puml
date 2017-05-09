@@ -1,0 +1,38 @@
+@startuml
+
+VoteManager o--> VoteState
+VoteState <|.. NormalVoteState
+VoteState <|.. RepeatVoteState
+VoteState <|.. SpiteVoteState
+VoteState <|.. BlackVoteState
+
+
+
+class VoteManager{
+- VoteState state
+- Map<String,Integer> mapVoteCount
+- Map<String,String> mapVote
+
++ void vote(String user,String voteItem)
+}
+
+interface VoteState{
++ void vote(String user,String voteItem,VoteManager voteManager)
+}
+
+class NormalVoteState{
++ void vote(String user,String voteItem,VoteManager voteManager)
+}
+
+class RepeatVoteState{
++ void vote(String user,String voteItem,VoteManager voteManager)
+}
+
+class SpiteVoteState{
++ void vote(String user,String voteItem,VoteManager voteManager)
+}
+
+class BlackVoteState{
++ void vote(String user,String voteItem,VoteManager voteManager)
+}
+@enduml

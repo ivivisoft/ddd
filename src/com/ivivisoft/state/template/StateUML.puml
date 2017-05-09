@@ -1,0 +1,28 @@
+@startuml
+
+Context o--> State:组合
+State <|.. ConcreteStateA:实现
+State <|.. ConcreteStateB:实现
+
+'环境，也称上下文，通常定义客户感兴趣的接口，
+'同时维护一个来具体处理当前
+'状态的实例对象
+class Context{
++ void request(String sampleParameter）
+}
+
+'状态接口，用来封装与上下文的一个特定状态所对应的行为
+interface State{
++ void handle(String sampleParameter)
+}
+
+'具体的实现状态处理的类，每个类实现一个跟上下文相关的状态处理
+class ConcreteStateA{
++ void handle(String sampleParameter)
+}
+
+class ConcreteStateB{
++ void handle(String sampleParameter)
+}
+
+@enduml
