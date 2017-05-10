@@ -1,4 +1,4 @@
-package com.ivivisoft.state.example;
+package com.ivivisoft.state.example.type1;
 
 /**
  * Created by andy on 2017/5/9.

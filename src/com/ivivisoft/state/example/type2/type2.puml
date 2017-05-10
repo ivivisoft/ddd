@@ -1,0 +1,9 @@
+@startuml
+autonumber
+Client -> Context:调用上下文来处理业务请求
+Context -> Context:获取State对象
+Context -> Context:委托让相应的状态对象去处理
+StateA -> StateB: 调用构造方法得到下一个状态对象的实例
+StateB -->StateA
+StateA -> Context:设置下一个状态处理对象
+@enduml

@@ -1,0 +1,7 @@
+@startuml
+autonumber
+Client -> Context:调用上下文的方法来处理业务请求
+Context -> Context: 判断并维护状态
+Context -> State: 根据状态来调用相应的状态处理对象的方法
+
+@enduml
