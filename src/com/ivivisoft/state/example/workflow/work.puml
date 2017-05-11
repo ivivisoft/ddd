@@ -1,0 +1,40 @@
+@startuml
+
+StateMachine <|-- LeaveRequestContext
+StateMachine o--> State
+State <|-- LeaveRequestState
+LeaveRequestState <|.. ProjectManagerState
+LeaveRequestState <|.. DepManagerState
+LeaveRequestState <|.. AuditOverState
+
+
+class StateMachine{
+-State state
+-Object businessVO
++void doWork()
+}
+
+class LeaveRequestContext{
+}
+
+interface State{
++void doWork(StateMachine ctx)
+}
+
+interface LeaveRequestState{
+}
+
+class DepManagerState{
++void doWork(StateMachine ctx)
+}
+
+class ProjectManagerState{
++void doWork(StateMachine ctx)
+}
+
+class AuditOverState{
++void doWork(StateMachine ctx)
+}
+
+
+@enduml
