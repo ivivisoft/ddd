@@ -1,0 +1,29 @@
+@startuml
+
+Price o--> Strategy
+Strategy <|.. NormalCustomerStrategy
+Strategy <|.. OldCustomerStrategy
+Strategy <|.. LargeCustomerStrategy
+
+interface Strategy{
+    +double calcPrice(double goodsPrice)
+}
+
+class Price{
+    -Strategy strategy
+    +Price(Strategy strategy)
+    +double quote(double goodsPrice)
+}
+
+class NormalCustomerStrategy{
+    +double calcPrice(double goodsPrice)
+}
+
+class OldCustomerStrategy{
+    +double calcPrice(double goodsPrice)
+}
+
+class LargeCustomerStrategy{
+    +double calcPrice(double goodsPrice)
+}
+@enduml
